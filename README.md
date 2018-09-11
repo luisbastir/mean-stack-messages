@@ -1,6 +1,6 @@
 # Messages App
 
-This is a demo app (frontend part) made with Angular 6 based on MEAN Stack (Mongo, Express, Angular, Node) framework.
+This is a demo app made with Angular 6 for the Frontend and NodeJS, ExpressJS and MongoDB as Backend; based on MEAN Stack (Mongo, Express, Angular, Node) framework.
 
 ## Author
 
