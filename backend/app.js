@@ -1,7 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+const Post = require("./models/post");
 
 const app = express();
+
+mongoose.connect("mongodb://localhost:27017/mean-stack-messages")
+  .then(() => {
+    console.log("Connected to database!");
+  }).catch(() => {
+    console.log("Connection failed!");
+  })
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 // Allow CORS
@@ -13,22 +24,32 @@ app.use((req, res, next) => {
 })
 
 app.post("/api/posts", (req, res, next) => {
-  const post = req.body;
-  console.log(post);
-  res.status(201).json({
-    message: "Post added successfully!"
+  const post = new Post({
+    title: req.body.title,
+    content: req.body.content
+  });
+  post.save().then(created => {
+    res.status(201).json({
+      message: "Post added successfully!",
+      postId: created._id
+    });
   });
 });
 
 app.get("/api/posts", (req, res, next) => {
-  const posts = [
-    { id: "asdasdasd", title: "First server-side post", content: "This is a content"},
-    { id: "werwerwer", title: "Second server-side post", content: "This is a content"}
-  ];
-  res.status(200).json({
-    message: "Posts fetched successfully",
-    posts: posts
+  Post.find().then((posts) => {
+    res.status(200).json({
+      message: "Posts fetched successfully",
+      posts: posts
+    });
   });
+});
+
+app.delete("/api/posts/:id", (req, res, next) => {
+  Post.deleteOne({_id: req.params.id}).then((result) => {
+    console.log(result);
+    res.status(200).json({message: "Post deleted!"});
+  })
 });
 
 module.exports = app;
