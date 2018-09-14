@@ -14,30 +14,31 @@ You need to install [Git](https://git-scm.com/book/en/v2/Getting-Started-Install
 
 Then clone this repository by running the following command
 
-'''bash
+```bash
 > git clone https://github.com/luisbastir/mean-stack-messages.git
 > cd mean-stack-messages
-'''
+```
 
 ### Installing
 
 First you need to get all dependencies by running the follow command
 
-'''bash
+```bash
 > npm install
-'''
+```
 
 Before running the servers, run mongoDB on your machine.
 To start the frontend server use
 
-'''bash
+```bash
 > ng serve
-'''
+```
 
 And to run the backend server use
-'''bash
+
+```bash
 > npm run dev:server
-'''
+```
 
 On a web browser, go to [http://localhost:4200/](http://localhost:4200/) and start enjoying the app.
 
