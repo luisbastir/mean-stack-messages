@@ -8,7 +8,7 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/mean-stack-messages")
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true})
   .then(() => {
     console.log("Connected to database!");
   }).catch(() => {
