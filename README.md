@@ -1,6 +1,6 @@
 # Messages App
 
-This is a demo app for learning and practice purposes using the MEAN Stack (Mongo, Express, Angular, Node) framework. This project is based on the course taught by Maximilian Schwarzmüller.
+This is a demo app for learning and practice purposes using the MEAN Stack (Mongo, Express, Angular, Node) framework. This project is based on a course taught by Maximilian Schwarzmüller for learning and practicing purposes.
 
 The project consist on build a full-stack web application that can manage user sessions and post messages (like a blog) with a title, message and images. This repository contains two apps: the frontend and the backend instances. The frontent covers all the user interface and calls to the server, and is built in typescript using the Angular Framwork. The backend serves and stores all posts through API calls, and is built in javascript using Node-js, Express-js and MongoDB.
 
